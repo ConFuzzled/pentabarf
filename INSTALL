@@ -1,139 +1,188 @@
-Requirements
-
-You should install all Ruby libraries with gem. Do not try to install them using your package manager, otherwise you will get issues.
-
 In order to install pentabarf you need the following software:
 
-General
+
+--General--
 
 PostgreSQL >= 8.2.x
 PostgreSQL contrib (pgcrypto)
 Ruby 1.8.6
-ImageMagick (image manipulation library)
-libpq (postgresql client library) [if gem complains about headers missing, you might need to install libpq-dev as well]
-shared-mime-info
-ruby-iconv (if not part of your ruby distribution)
-Ruby libraries (all available as gem)
-
+Ruby-dev 1.8.6
 Rails 2.2.x
-XMPP4R (Jabber library for Ruby - not needed if you don't need the jabber features) gem install xmpp4r
-RMagick (ruby bindings for imagemagick) gem install rmagick
-postgres >=0.7.9.2008.01.28 gem install postgres
-Momomoto >= 0.2.1 gem install momomoto
-shared-mime-info - you need the gem and the database itself, gem install shared-mime-info
-iCalendar - needed for ical generation, gem install icalendar
-BlueCloth - gem install BlueCloth
-Pentabarf
+ImageMagick (image manipulation library)
+libmagickcore-dev
+libmagickwand-dev
+librmagick-ruby
+libMagick++-dev
+libpq (postgresql client library)
+libpq-dev
+shared-mime-info
+iconv (if not part of your ruby distribution)
 
-You may either use the latest release or check out the current tree using git:
 
-git clone git://github.com/nevs/pentabarf.git
+--Ruby libraries--
+NOTE: You should install all Ruby libraries with gem. 
+	Do not try to install them using your package manager
+	otherwise you will get issues.
+
+XMPP4R				- [gem install xmpp4r]
+RMagick				- [gem install rmagick --no-ri --no-rdoc]
+postgres (>=0.7.9.2008.01.28)	- [gem install postgres]
+Momomoto (>= 0.2.1)		- [gem install momomoto]
+shared-mime-info		- [gem install shared-mime-info]
+iCalendar			- [gem install icalendar]
+BlueCloth			- [gem install BlueCloth]
+
+
+--Pentabarf--
+
+You may either use the latest release or check out the current 
+tree using git.
+
+	git clone git://github.com/nevs/pentabarf.git
+
 Currently the latest release is 0.4.4.
 
-Database Setup
 
-You should run the database installation as the same database user as you want the webapp to run. If the installation user does not have superuser privileges you have to activate PL/pgSQL for the database before running make install.
+--Database Setup--
 
-createdb pentabarf
-[PGDATABASE=pentabarf] createlang plpgsql
+You should run the database installation as the same database user as 
+you want the webapp to run. If the installation user does not have 
+superuser privileges you have to activate PL/pgSQL for the database 
+before running make install.
+
+	createdb pentabarf
+	[PGDATABASE=pentabarf] createlang plpgsql
+
 Before you pull your hair over pentabarf.transaction_id error messages:
 Pentabarf requires a PostgreSQL configuration change. You have to set
 
- custom_variable_classes = 'pentabarf'
-in the postgresql.conf file (usually in /var/lib/postgresql/data or /etc/postgresql/[version]/main in ubuntu) and make PostgreSQL reload the configuration.
+	custom_variable_classes = 'pentabarf'
 
-In the sql directory of your checkout is a Makefile to create the database and all tables. The variable assignments are only necessary if you want to override the defaults used by psql (see the psql manpage for further information).
+in the postgresql.conf file (usually in /var/lib/postgresql/data 
+or /etc/postgresql/[version]/main in ubuntu) and make PostgreSQL 
+reload the configuration.
 
-[PGDATABASE=pentabarf] make install 
+In the sql directory of your checkout is a Makefile to create the 
+database and all tables. The variable assignments are only necessary 
+if you want to override the defaults used by psql (see the psql 
+manpage for further information).
+
+	[PGDATABASE=pentabarf] make install
+
 To fill the tables with initial data.
 
-[PGDATABASE=pentabarf] make import 
-If you want to create an initial pentabarf user you can also issue the following command which will create a user 'pentabarf' with the password 'pentabarf.
+	[PGDATABASE=pentabarf] make import
+ 
+If you want to create an initial pentabarf user you can also issue 
+the following command which will create a user 'pentabarf' with the 
+password 'pentabarf.
 
-[PGDATABASE=pentabarf] make user 
-If you do not assign variables psql assumes the name of the database is the same as your username. The database is expected to exist.
+	[PGDATABASE=pentabarf] make user
 
-You need to install pgcrypto in the pentabarf database and the sql files bundled with momomoto.
+If you do not assign variables psql assumes the name of the database 
+is the same as your username. The database is expected to exist.
 
-pgcrypto installation
 
-You need to install pgcrypto in the pentabarf database. Execute the following command in order to do so:
+--pgcrypto installation--
 
- psql -U pentabarf pentabarf < /usr/share/postgresql/8.2/contrib/pgcrypto.sql 
-The path might be slightly differently depending on your operating system/distribution.
-pgcrypto is usually packaged in postgresql-contrib or directly included your postgresql-server package.
+You need to install pgcrypto in the pentabarf database. Execute 
+the following command in order to do so:
 
-Momomoto installation
+	psql -U pentabarf pentabarf < /usr/share/postgresql/8.2/contrib/pgcrypto.sql
+ 
+The path might be slightly differently depending on your operating 
+system/distribution. pgcrypto is usually packaged in postgresql-contrib 
+or directly included your postgresql-server package.
 
- # gem install momomoto
- Bulk updating Gem source index for: http://gems.rubyforge.org
- Successfully installed momomoto-0.1.14
- Installing ri documentation for momomoto-0.1.14...
- Installing RDoc documentation for momomoto-0.1.14...
-You also need to run the install.sql script that was installed with momomoto.
-The path given in the following example is for FreeBSD. On Debian, it is under /var/lib/gems, on gentoo/ubuntu under /usr/lib/ruby/gems
 
-# cd /usr/local/lib/ruby/gems/1.8/gems/momomoto-0.1.14/sql
-# psql < install.sql
-BEGIN
-CREATE SCHEMA
-CREATE TYPE
-CREATE TYPE
-CREATE FUNCTION
-CREATE FUNCTION
-COMMIT
-Momomoto Upgrade
+--Momomoto installation--
+
+You need to run the install.sql script that was installed with momomoto.
+The path given in the following example is for FreeBSD. On Debian, it is 
+under /var/lib/gems, on gentoo/ubuntu under /usr/lib/ruby/gems
+
+	# cd /usr/local/lib/ruby/gems/1.8/gems/momomoto-0.1.14/sql
+	# psql < install.sql
+
+	BEGIN
+	CREATE SCHEMA
+	CREATE TYPE
+	CREATE TYPE
+	CREATE FUNCTION
+	CREATE FUNCTION
+	COMMIT
+	Momomoto Upgrade
 
 This demonstrates an upgrade of Momomoto from 0.1.14 to 0.1.16.
 
-gem update momomoto
-Updating installed gems...
-Bulk updating Gem source index for: http://gems.rubyforge.org
-Attempting remote update of momomoto
-Install required dependency postgres? [Yn]  <b>Y</b>
-Building native extensions.  This could take a while...
-Successfully installed momomoto-0.1.16
-Successfully installed postgres-0.7.9.2008.01.24
-Installing ri documentation for momomoto-0.1.16...
-Installing ri documentation for postgres-0.7.9.2008.01.24...
-Installing RDoc documentation for momomoto-0.1.16...
-Installing RDoc documentation for postgres-0.7.9.2008.01.24...
-Gems: [momomoto] updated
+	gem update momomoto
+	Updating installed gems...
+	Bulk updating Gem source index for: http://gems.rubyforge.org
+	Attempting remote update of momomoto
+	Install required dependency postgres? [Yn]  <b>Y</b>
+	Building native extensions.  This could take a while...
+	Successfully installed momomoto-0.1.16
+	Successfully installed postgres-0.7.9.2008.01.24
+	Installing ri documentation for momomoto-0.1.16...
+	Installing ri documentation for postgres-0.7.9.2008.01.24...
+	Installing RDoc documentation for momomoto-0.1.16...
+	Installing RDoc documentation for postgres-0.7.9.2008.01.24...
+	Gems: [momomoto] updated
+
 To see what you have installed, issue the gem list command.
 
-Pentabarf Configuration
 
-The Pentabarf configuration files are located in the config directory of your checkout. For all files described here there is a template file you may to copy.
+--Pentabarf Configuration--
 
-database.yml
+The Pentabarf configuration files are located in the config directory 
+of your checkout. For all files described here there is a template file 
+you may to copy.
 
-This is the file describing the way Pentabarf connects to the database. You should adjust it to reflect your setup. The important section in this file is the production section. The other sections are not used in normal operation.
+	database.yml
 
- production:
-  adapter: postgresql
-  database: pentabarf
-  host: localhost
-  username: pentabarf
-  password:
-jabber.yml
+This is the file describing the way Pentabarf connects to the database. 
+You should adjust it to reflect your setup. The important section in 
+this file is the production section. The other sections are not used 
+in normal operation.
 
-This is the configuration file for sending debug messages via jabber. You don't have to configure this if you don't want to receive debug output with jabber, but I recommend using it because it's much easier to find bugs with jabber debug output enabled. The following table describes the meaning of the fields.
+	production:
+	 adapter: postgresql
+	 database: pentabarf
+	 host: localhost
+	 username: pentabarf
+	 password: pentabarf
 
-Field	Value
-jabber_id	Jabber-ID of the component including resource (it won't work if you forgot the resource)
-server	hostname of the server you are using
-port	port to connect to on the server
-password	password of the jabber account
-socket_path	filename for the socket opened by the bot
-recipients	list of recipients for the debug messages each recipient stands on an extra line starting with a dash
-mail.yml
+	jabber.yml
 
-This is the configuration file for the mail subsystem. You don't have to configure this if the system running your Pentabarf installation has mail delivery configured locally otherwise you have to edit this file to reflect your setup.
+This is the configuration file for sending debug messages via jabber. 
+You don't have to configure this if you don't want to receive debug 
+output with jabber, but I recommend using it because it's much easier 
+to find bugs with jabber debug output enabled. The following table 
+describes the meaning of the fields.
+
+	Field		Value
+	jabber_id	Jabber-ID of the component including resource 
+			(it won't work if you forgot the resource)
+	server		hostname of the server you are using
+	port		port to connect to on the server
+	password	password of the jabber account
+	socket_path	filename for the socket opened by the bot
+	recipients	list of recipients for the debug messages each 
+			recipient stands on an extra line starting with a dash
+
+	mail.yml
+
+This is the configuration file for the mail subsystem. You don't have 
+to configure this if the system running your Pentabarf installation 
+has mail delivery configured locally otherwise you have to edit this 
+file to reflect your setup.
 Webserver Setup
 
-Installation/Webserver Setup
 
-Upgrading Pentabarf
+--Installation/Webserver Setup--
+
+
+--Upgrading Pentabarf--
 
 We recommend that you backup, or at least save, your existing installation. We also recommend taking a backup of your Pentabarf database. The upgrade process should never destroy any data. Regardless, nobody ever regrets making a backup.
 
