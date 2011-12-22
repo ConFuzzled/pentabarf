@@ -3,6 +3,11 @@ In order to install pentabarf you need the following software:
 
 --General--
 
+Apache 2
+   * mod_proxy
+   * mod_proxy_http
+   * mod_proxy_balancer
+   * mod_rewrite 
 PostgreSQL >= 8.2.x
 PostgreSQL contrib (pgcrypto)
 Ruby 1.8.6
@@ -17,20 +22,25 @@ libpq (postgresql client library)
 libpq-dev
 shared-mime-info
 iconv (if not part of your ruby distribution)
+Mongrel
+Mongrel_cluster
 
 
 --Ruby libraries--
-NOTE: You should install all Ruby libraries with gem. 
+NOTE:	You should install all Ruby libraries with gem. 
 	Do not try to install them using your package manager
 	otherwise you will get issues.
 
 XMPP4R				- [gem install xmpp4r]
-RMagick				- [gem install rmagick --no-ri --no-rdoc]
+-> RMagick			- [gem install rmagick]
 postgres (>=0.7.9.2008.01.28)	- [gem install postgres]
 Momomoto (>= 0.2.1)		- [gem install momomoto]
 shared-mime-info		- [gem install shared-mime-info]
 iCalendar			- [gem install icalendar]
 BlueCloth			- [gem install BlueCloth]
+Mongrel				- [gem install mongrel]
+Mongrel_cluster			- [gem install mongrel_cluster]
+Rails (2.3.10)			- [gem install -v=2.3.10 rails]
 
 
 --Pentabarf--
@@ -50,8 +60,53 @@ you want the webapp to run. If the installation user does not have
 superuser privileges you have to activate PL/pgSQL for the database 
 before running make install.
 
+If you've installed the PostgresSQL server from the package manager
+theres a good chance this is where you'll have a problem. Give the 
+following command a try before reading on.
+
 	createdb pentabarf
-	[PGDATABASE=pentabarf] createlang plpgsql
+
+If after trying to create the database you recieved an error that looked
+alot like the following.
+
+	createdb mydb
+	createdb: could not connect to database postgres: FATAL:  Ident authentication failed for user "pentabarf"
+
+Don't worry it just means you have IDENT authentication enabled and
+the only user who can access it currently is "postgres" the only
+problem with this is the we don't know the password to the default
+superuser account so we'll have to side-step it slightly.
+
+First, open a root terminal and issue the following command.
+
+	su - postgres
+
+Which should get you a terminal that looks like
+
+	root@Duality:/home/pentabarf# su - postgres
+	postgres@Duality:~$ 
+
+Ok, so, from the system root account we are now the postgres superuser
+now we need to add another user so we can create and access the database
+without su'ing to postgres.
+
+	createuser pentabarf
+
+It will also ask you if you wish to make the account a superuser, for
+the sake of making the rest of the install easier, answer yes. Now
+hop back to a none root terminal and issue the create database
+command again
+
+	createdb pentabarf
+
+It will take a moment or two and then give you the next prompt, if
+you want to double check it's been done then try creating the same one
+again and Postgres will throw and error saying it already exists.
+
+Now we're ready to carry on again.
+
+	PGDATABASE=pentabarf 
+	createlang plpgsql
 
 Before you pull your hair over pentabarf.transaction_id error messages:
 Pentabarf requires a PostgreSQL configuration change. You have to set
@@ -60,24 +115,36 @@ Pentabarf requires a PostgreSQL configuration change. You have to set
 
 in the postgresql.conf file (usually in /var/lib/postgresql/data 
 or /etc/postgresql/[version]/main in ubuntu) and make PostgreSQL 
-reload the configuration.
+reload the configuration. it can be done without restarting the
+whole server but it's again the easiest way to make sure it happens.
+On Debian you do this with the following.
+
+	sudo /etc/init.d/postgresql restart
 
 In the sql directory of your checkout is a Makefile to create the 
 database and all tables. The variable assignments are only necessary 
 if you want to override the defaults used by psql (see the psql 
 manpage for further information).
+	
+	cd ~/pentabarf/sql
+	PGDATABASE=pentabarf
+	make install
 
-	[PGDATABASE=pentabarf] make install
+It will fill your terminal with alot of output and you will see
+things that look like errors but they're just notices. To fill 
+the tables with initial data.
 
-To fill the tables with initial data.
+	PGDATABASE=pentabarf
+	make import
 
-	[PGDATABASE=pentabarf] make import
- 
-If you want to create an initial pentabarf user you can also issue 
-the following command which will create a user 'pentabarf' with the 
-password 'pentabarf.
+Your terminal will fill once again with lots of SET's and INSERT's
+this is perfectly normal, it's just topped up the database with
+some inital information. If you want to create an initial pentabarf 
+user you can also issue the following command which will create a 
+user 'pentabarf' with the password 'pentabarf.
 
-	[PGDATABASE=pentabarf] make user
+	PGDATABASE=pentabarf
+	make user
 
 If you do not assign variables psql assumes the name of the database 
 is the same as your username. The database is expected to exist.
@@ -88,7 +155,7 @@ is the same as your username. The database is expected to exist.
 You need to install pgcrypto in the pentabarf database. Execute 
 the following command in order to do so:
 
-	psql -U pentabarf pentabarf < /usr/share/postgresql/8.2/contrib/pgcrypto.sql
+	psql -U pentabarf pentabarf < /usr/share/postgresql/<your-version>/contrib/pgcrypto.sql
  
 The path might be slightly differently depending on your operating 
 system/distribution. pgcrypto is usually packaged in postgresql-contrib 
@@ -98,10 +165,10 @@ or directly included your postgresql-server package.
 --Momomoto installation--
 
 You need to run the install.sql script that was installed with momomoto.
-The path given in the following example is for FreeBSD. On Debian, it is 
-under /var/lib/gems, on gentoo/ubuntu under /usr/lib/ruby/gems
+The path given in the following example is for Debian, on gentoo/ubuntu 
+under /usr/lib/ruby/gems and FreeBSD under /usr/local/lib/ruby/gems.
 
-	# cd /usr/local/lib/ruby/gems/1.8/gems/momomoto-0.1.14/sql
+	# cd /var/lib/gems/1.8/gems/momomoto-0.2.1/sql
 	# psql < install.sql
 
 	BEGIN
@@ -111,34 +178,16 @@ under /var/lib/gems, on gentoo/ubuntu under /usr/lib/ruby/gems
 	CREATE FUNCTION
 	CREATE FUNCTION
 	COMMIT
-	Momomoto Upgrade
-
-This demonstrates an upgrade of Momomoto from 0.1.14 to 0.1.16.
-
-	gem update momomoto
-	Updating installed gems...
-	Bulk updating Gem source index for: http://gems.rubyforge.org
-	Attempting remote update of momomoto
-	Install required dependency postgres? [Yn]  <b>Y</b>
-	Building native extensions.  This could take a while...
-	Successfully installed momomoto-0.1.16
-	Successfully installed postgres-0.7.9.2008.01.24
-	Installing ri documentation for momomoto-0.1.16...
-	Installing ri documentation for postgres-0.7.9.2008.01.24...
-	Installing RDoc documentation for momomoto-0.1.16...
-	Installing RDoc documentation for postgres-0.7.9.2008.01.24...
-	Gems: [momomoto] updated
-
-To see what you have installed, issue the gem list command.
 
 
 --Pentabarf Configuration--
 
-The Pentabarf configuration files are located in the config directory 
+The Pentabarf configuration files are located in the rails/config directory 
 of your checkout. For all files described here there is a template file 
-you may to copy.
+located in the directory (e.g database.yml.template)
 
-	database.yml
+
+-database.yml-
 
 This is the file describing the way Pentabarf connects to the database. 
 You should adjust it to reflect your setup. The important section in 
@@ -152,7 +201,8 @@ in normal operation.
 	 username: pentabarf
 	 password: pentabarf
 
-	jabber.yml
+
+-jabber.yml-
 
 This is the configuration file for sending debug messages via jabber. 
 You don't have to configure this if you don't want to receive debug 
@@ -170,7 +220,8 @@ describes the meaning of the fields.
 	recipients	list of recipients for the debug messages each 
 			recipient stands on an extra line starting with a dash
 
-	mail.yml
+
+-mail.yml-
 
 This is the configuration file for the mail subsystem. You don't have 
 to configure this if the system running your Pentabarf installation 
@@ -180,6 +231,32 @@ Webserver Setup
 
 
 --Installation/Webserver Setup--
+
+If you haven't already installed Apache 2 while you had your package
+manager open earlier on, go and do it now! Once that's installed it's 
+time to enabled the extra modules you need. You need to do this
+from a root terminal and if you're using Debian then there's a neat
+time saving tools to help out.
+
+	a2enmod
+
+	Your choices are: <insert large list of modules here>
+	...
+	Which module(s) do you want to enable (wildcards ok)?
+
+You then need to enter the following and hit enter.
+
+	proxy proxy_http proxy_balancer
+
+It's a good idea to restart Apache now.
+
+	/etc/init.d/apache2 restart
+
+
+
+	cd ~/pentabarf/rails
+	mongrel_rails cluster::start
+	script/server
 
 
 --Upgrading Pentabarf--
