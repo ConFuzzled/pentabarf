@@ -1,5 +1,12 @@
-In order to install pentabarf you need the following software:
+-----------------------------------------------------------
+-This install guide is designed to go from a fresh install-
+-of Debian 6.0 64-Bit. It could be used for other distros -
+-(e.gGentoo/Ubuntu, FreeBSD) though locations and some    -
+-commands will change! 					  -
+-----------------------------------------------------------
 
+In order to install pentabarf you need the following software and
+libraries before beginning:
 
 --General--
 
@@ -252,37 +259,119 @@ It's a good idea to restart Apache now.
 
 	/etc/init.d/apache2 restart
 
+Now it's time to add a little bit to the apache configuration
+file. This is all done on a fresh install of Debian so we're
+going to use Nano as our terminal text editor. This needs to
+be done from a root terminal.
 
+	cd /etc/apache2/
+	nano apache2.conf
+
+Now you have the configuration file ytou need to add the 
+following.
+
+	<Proxy balancer://pentabarf>
+	  BalancerMember http://127.0.0.1:8001
+	  BalancerMember http://127.0.0.1:8002
+	  BalancerMember http://127.0.0.1:8003
+
+	  Order allow,deny
+	  Allow from all
+	</Proxy>
+
+	RewriteEngine On
+	RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} !-f
+	RewriteRule ^/(.*)$ balancer://pentabarf%{REQUEST_URI} [P,QSA,L]
+
+It can go in anywhere within the file. Once it's in, save it return
+to the terminal. It's time to configure Mongrel so it's ready to run.
+
+	cd ~/pentabarf/rails
+	mongrel_rails cluster::configure -e production -p 8001 -N 3 -a 127.0.0.1
+
+Now you're done with the root terminal so swap back to a user terminal
+and it's time to try starting Pentabarf!
 
 	cd ~/pentabarf/rails
 	mongrel_rails cluster::start
+
+This should generate the following if all is well.
+
+	 $ mongrel_rails cluster::start
+	 starting port 8001
+	 starting port 8002
+	 starting port 8003
+
+Every time you want to start Pentabarf you will need to run the
+above command first.
+
+The final command is still from within the rails directory of
+pentabarf.
+
 	script/server
+
+Now you should have just watch Pentabarf start up, a successful
+start looks a little like the following.
+
+	=> Booting Mongrel
+	=> Rails 2.3.10 application starting on http://0.0.0.0:3000
+	=> Call with -d to detach
+	=> Ctrl-C to shutdown server
+
+
+NOTE:	If you close the terminal that you started pentabarf from then
+	you kill pentabarf too.
+
+
+Now you should finally be able to try accessing Pentabarf via one of
+the following from the local machine.
+
+	http://0.0.0.0:3000	(user:pentabarf pass:pentabarf)
+	http://localhost:3000	(user:pentabarf pass:pentabarf)
+	http://127.0.0.1:3000	(user:pentabarf pass:pentabarf)
 
 
 --Upgrading Pentabarf--
 
-We recommend that you backup, or at least save, your existing installation. We also recommend taking a backup of your Pentabarf database. The upgrade process should never destroy any data. Regardless, nobody ever regrets making a backup.
+We recommend that you backup, or at least save, your existing 
+installation. We also recommend taking a backup of your Pentabarf 
+database. The upgrade process should never destroy any data. 
+Regardless, nobody ever regrets making a backup.
 
-If you are doing a minor upgrade, the rest of this page is for you. If you are upgrading from 0.2.x to 0.3.x, you should read the Upgrading from 0.2.x to 0.3.x instructions.
+If you are doing a minor upgrade, the rest of this page is for 
+you. If you are upgrading from 0.2.x to 0.3.x, you should read 
+the Upgrading from 0.2.x to 0.3.x instructions.
 
-When upgrading, this is the recommended method (i.e upgrading in place). It avoids having to remember to copy over all the correct configuration files, etc:
+When upgrading, this is the recommended method (i.e upgrading 
+in place). It avoids having to remember to copy over all the 
+correct configuration files, etc:
 
-* svn switch svn://svn.cccv.de/pentabarf/tags/NEW_VERSION
-For example, if you are upgrading to 0.3.9, you should put 0.3.9 instead of NEW_VERSION.
+	svn switch svn://svn.cccv.de/pentabarf/tags/NEW_VERSION
 
-In the next steps you have to replace the values for PGDATABASE and PGUSER with the values used during your installation. If you followed the steps on this page both must be set to pentabarf (or whatever user and database name applies to your situation).
+For example, if you are upgrading to 0.3.9, you should put 
+0.3.9 instead of NEW_VERSION.
 
-* export PGDATABASE=pentabarf
-* export PGUSER=pentabarf
-You will need to run the appropriate upgrade script from sql/maintenance. For example, if you are upgrading from 0.3.6 to 0.3.7, you must run sql/maintenance/upgrade_0.3.6_to_0.3.7.sql
+In the next steps you have to replace the values for PGDATABASE 
+and PGUSER with the values used during your installation. If you 
+followed the steps on this page both must be set to pentabarf 
+(or whatever user and database name applies to your situation).
 
-* psql < sql/maintenance/upgrade_0.3.6_to_0.3.7.sql
+	export PGDATABASE=pentabarf
+	export PGUSER=pentabarf
+
+You will need to run the appropriate upgrade script from 
+sql/maintenance. For example, if you are upgrading from 
+0.3.6 to 0.3.7, you must run sql/maintenance/upgrade_0.3.6_to_0.3.7.sql
+
+	psql < sql/maintenance/upgrade_0.3.6_to_0.3.7.sql
+
 And in the SQL directory, you should run the following scripts:
 
-* cd sql/
-* psql < functions.sql
-* psql < views.sql
-CSS
+	cd sql/
+	psql < functions.sql
+	psql < views.sql
+
+--CSS--
 
 To generate the CSS file:
 
