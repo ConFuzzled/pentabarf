@@ -8,7 +8,9 @@
 In order to install pentabarf you need the following software and
 libraries before beginning:
 
---General--
+---------
+-General-
+---------
 
 Apache 2
    * mod_proxy
@@ -33,7 +35,10 @@ Mongrel
 Mongrel_cluster
 
 
---Ruby libraries--
+----------------
+-Ruby libraries-
+----------------
+
 NOTE:	You should install all Ruby libraries with gem. 
 	Do not try to install them using your package manager
 	otherwise you will get issues.
@@ -50,7 +55,9 @@ Mongrel_cluster			- [gem install mongrel_cluster]
 Rails (2.3.10)			- [gem install -v=2.3.10 rails]
 
 
---Pentabarf--
+-----------
+-Pentabarf-
+-----------
 
 You may either use the latest release or check out the current 
 tree using git.
@@ -60,7 +67,9 @@ tree using git.
 Currently the latest release is 0.4.4.
 
 
---Database Setup--
+----------------
+-Database Setup-
+----------------
 
 You should run the database installation as the same database user as 
 you want the webapp to run. If the installation user does not have 
@@ -157,7 +166,9 @@ If you do not assign variables psql assumes the name of the database
 is the same as your username. The database is expected to exist.
 
 
---pgcrypto installation--
+-----------------------
+-pgcrypto installation-
+-----------------------
 
 You need to install pgcrypto in the pentabarf database. Execute 
 the following command in order to do so:
@@ -169,7 +180,9 @@ system/distribution. pgcrypto is usually packaged in postgresql-contrib
 or directly included your postgresql-server package.
 
 
---Momomoto installation--
+-----------------------
+-Momomoto installation-
+-----------------------
 
 You need to run the install.sql script that was installed with momomoto.
 The path given in the following example is for Debian, on gentoo/ubuntu 
@@ -187,7 +200,9 @@ under /usr/lib/ruby/gems and FreeBSD under /usr/local/lib/ruby/gems.
 	COMMIT
 
 
---Pentabarf Configuration--
+-------------------------
+-Pentabarf Configuration-
+-------------------------
 
 The Pentabarf configuration files are located in the rails/config directory 
 of your checkout. For all files described here there is a template file 
@@ -237,7 +252,9 @@ file to reflect your setup.
 Webserver Setup
 
 
---Installation/Webserver Setup--
+------------------------------
+-Installation/Webserver Setup-
+------------------------------
 
 If you haven't already installed Apache 2 while you had your package
 manager open earlier on, go and do it now! Once that's installed it's 
@@ -331,7 +348,9 @@ the following from the local machine.
 	http://127.0.0.1:3000	(user:pentabarf pass:pentabarf)
 
 
---Upgrading Pentabarf--
+---------------------
+-Upgrading Pentabarf-
+---------------------
 
 We recommend that you backup, or at least save, your existing 
 installation. We also recommend taking a backup of your Pentabarf 
@@ -371,7 +390,9 @@ And in the SQL directory, you should run the following scripts:
 	psql < functions.sql
 	psql < views.sql
 
---CSS--
+-----
+-CSS-
+-----
 
 To generate the CSS file:
 
