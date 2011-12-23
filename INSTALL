@@ -10,6 +10,7 @@
 -   * Pentabarf will run under a user called 'pentabarf'            -
 -   * You have root access to the host system                       -
 -   * All passwords are left at defaults or are the same as the user-
+-   * Your Pentabarf checkout is in the home directory of the user  -
 ---------------------------------------------------------------------
 
 
