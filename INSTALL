@@ -43,6 +43,8 @@ iconv (if not part of your ruby distribution)
 Mongrel
 Mongrel_cluster
 
+Additionally on Ubuntu:
+libopenssl-ruby1.8
 
 ----------------
 -Ruby libraries-
