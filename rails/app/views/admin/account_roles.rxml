@@ -3,13 +3,13 @@ xml.div( :id => 'data' ) do
   if @account.person_id
 
     xml.a({:href=>url_for({:controller=>'person',:action=>:edit,:person_id=>@account.person_id})}) do
-      xml.button( "Go to person page" )
+      xml.span( "Go to person page", {:class=>:button} )
     end
 
   else
 
     xml.a({:href=>url_for({:controller=>'admin',:action=>:activate_account,:id=>@account.account_id})}) do
-      xml.button( "Activate account" )
+      xml.span( "Activate account", {:class=>:button} )
     end if not @account.person_id
 
   end

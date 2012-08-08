@@ -4,18 +4,18 @@ xml.div(:id=>'content-export') do
     xml.legend( local('conference::tab::export') )
 
     xml.a({:href=>url_for({:controller=>'schedule',:conference_id=>@conference.conference_id,:action=>:index,:language=>:en})}) do
-      xml.button( local( :schedule_export ) )
+      xml.span( local( :schedule_export ), {:class=>:button} )
     end
     xml.a({:href=>url_for({:controller=>'ical',:action=>:conference,:conference_id=>@conference.conference_id})}) do
-      xml.button( local( :ical ) )
+      xml.span( local( :ical ), {:class=>:button} )
     end
 
     xml.a({:href=>url_for({:controller=>'xcal',:action=>:conference,:conference_id=>@conference.conference_id})}) do
-      xml.button( local( :xcal ) )
+      xml.span( local( :xcal ), {:class=>:button} )
     end
 
     xml.a({:href=>url_for({:controller=>'csv',:action=>:events})}) do
-      xml.button( 'Events CSV' )
+      xml.span( 'Events CSV', {:class=>:button} )
     end
 
     xml.table do

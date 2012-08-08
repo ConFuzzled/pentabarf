@@ -6,7 +6,7 @@ xml.div({:id=>:data}) do
   end
 
   xml.a({:href=>url_for({:controller=>'csv',:action=>:events,:id=>@results.map(&:event_id).join(' ')})}) do
-    xml.button("CSV",{:type=>:button})
+    xml.span("CSV", {:class=>:button})
   end
 
 end

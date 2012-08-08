@@ -4,5 +4,5 @@ paginate( xml, @results, params[:id].to_i ) do | results |
 end
 
 xml.a({:href=>url_for({:controller=>'csv',:action=>:events,:id=>@results.map(&:event_id).join(' ')})}) do
-  xml.button("CSV",{:type=>:button})
+  xml.span("CSV", {:class=>:button})
 end

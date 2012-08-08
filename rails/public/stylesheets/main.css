@@ -3,6 +3,8 @@ body { font-family: "Lucida Grande", Verdana, Lucida, Helvetica, Arial, sans-ser
 p { margin: 0.5em 0em 1em 0em; padding: 5px; line-height: 1.2em; }
 
 :link, :visited { text-decoration: none; color: inherit; }
+:link span.button, :visited span.button { border: 2px solid; background-color: white; font-weight: bold; padding: 2px 4px 2px 4px; }
+:link span.button:hover, :visited span.button:hover { background-color: #90acc8; color: #fff; border: 2px solid black; }
 
 h1, h2, h3, h4, h5, h6 { color: black; margin: 0px; padding-top: 0.5em; }
 
