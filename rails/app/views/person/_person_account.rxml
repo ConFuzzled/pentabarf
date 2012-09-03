@@ -37,7 +37,7 @@ xml.div(:id=>'content-account') do
     end
 
     xml.a({:href=>url_for({:controller=>'admin',:action=>:account_roles,:id=>@account.account_id})}) do
-      xml.button( "Edit all roles" )
+      xml.span( "Edit all roles", {:class=>:button} )
     end
 
   end if POPE.conference_permission?( 'account_conference_role::create', @current_conference.conference_id )
