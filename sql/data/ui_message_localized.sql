@@ -964,6 +964,7 @@ INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('localiz
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('localization::table_entries_percent_localized', 'de', 'Lokalisierung in Prozent');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('localization::table_entries_percent_localized', 'en', 'Localization in percent');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('localization::table_entries_percent_localized', 'pt', 'Porcentagem de termos traduzidos');
+INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('logout', 'en', 'Logout');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('mail', 'de', 'Mail');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('mail', 'en', 'Mail');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('mail', 'pt', 'Mail');
@@ -1385,7 +1386,7 @@ INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submiss
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::step6', 'pt', '# 6');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::step_activate_account', 'en', 'Click on the link sent to you with the confirmation mail to activate your account. You will be redirected to the submission interface of this conference.');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::step_activate_account', 'pt', 'Clique no link que foi enviado para você no e-mail para ativar sua conta. Você será redirecionado para o site desta conferência.');
-INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::step_done', 'en', 'Thanks for participating.');
+INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::step_done', 'en', 'The events team will review your submission and contact you via email.');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::step_done', 'pt', 'Obrigado por participar.');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::step_enter_personal_details', 'en', 'Click on "Person" on the left and enter your personal details. Please fill out at least everything on the "General" tab.');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::step_enter_personal_details', 'pt', 'Clique em "Pessoa" a esquerda e entre em seu pessoais detalhes. Por favor preencher a aba "Geral".');
@@ -1396,8 +1397,8 @@ INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submiss
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::step_new_event', 'en', 'Click on "New Event" on the left to create the new event you want to propose. Fill in the details of your submission. Don''t forget to fill in text boxes on the "Description" tab.');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::step_new_event', 'pt', 'Clique em "Novo Evento " a esquerda para criar um novo evento que você queira propor. Preencha em detalhes as informações de sua apresentação. Não esqueça de preencher todas as abas.');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::submission_readonly', 'en', 'The submission system for this conference is read only.');
-INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::submit_for_these_conferences', 'en', 'You can submit papers to any of the following conferences:');
-INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::welcome_to_submission_system', 'en', 'Welcome to the paper submission system');
+INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::submit_for_these_conferences', 'en', 'You can submit events to any of the following conferences:');
+INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::welcome_to_submission_system', 'en', 'Welcome to the events submission system');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::you_are_done', 'en', 'You are done!');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('tabs::show_all', 'de', 'Alle anzeigen');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('tabs::show_all', 'en', 'Show all');
