@@ -9,6 +9,18 @@ class ApplicationController < ActionController::Base
   around_filter :transaction_wrapper
   before_filter :automatic_token_check
 
+  rescue_from ActionController::RoutingError, :with => :not_found
+
+  private
+
+  def not_found( exception = nil )
+    unless exception.nil?
+      logger.info "Not found: #{exception.message}"
+    end
+
+    render :file => "#{Rails.root}/public/404.html", :status => 404, :layout => false
+  end
+
   protected
 
   def local( tag, arguments = {} )
