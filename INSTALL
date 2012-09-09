@@ -30,6 +30,7 @@ PostgreSQL >= 8.2.x
 PostgreSQL contrib (pgcrypto)
 Ruby 1.8.6
 Ruby-dev 1.8.6
+Rails 2.2.x
 ImageMagick (image manipulation library)
 libmagickcore-dev
 libmagickwand-dev
@@ -42,8 +43,6 @@ iconv (if not part of your ruby distribution)
 Mongrel
 Mongrel_cluster
 
-Additionally on Ubuntu:
-libopenssl-ruby1.8
 
 ----------------
 -Ruby libraries-
@@ -55,14 +54,14 @@ NOTE:	You should install all Ruby libraries with gem. Do not try
 
 XMPP4R				- [gem install xmpp4r]
 RMagick				- [gem install rmagick --no-ri --no-rdoc]
-postgres (=0.7.9.2008.01.28)	- [gem install postgres -v '0.7.9.2008.01.28']
+postgres (>=0.7.9.2008.01.28)	- [gem install postgres]
 Momomoto (>= 0.2.1)		- [gem install momomoto]
 shared-mime-info		- [gem install shared-mime-info]
 iCalendar			- [gem install icalendar]
 BlueCloth			- [gem install BlueCloth]
 Mongrel				- [gem install mongrel]
 Mongrel_cluster			- [gem install mongrel_cluster]
-Rails (2.3.5)			- [gem install -v=2.3.5 rails]
+Rails (2.3.10)			- [gem install -v=2.3.10 rails]
 
 
 -----------
@@ -151,7 +150,7 @@ In the sql directory of your checkout is a Makefile to create the
 database and all tables. The variable assignments are only necessary 
 if you want to override the defaults used by psql (see the psql 
 manpage for further information).
-	
+
 	cd ~/pentabarf/sql
 	PGDATABASE=pentabarf
 	make install
@@ -228,10 +227,10 @@ in normal operation.
 
 	production:
 	 adapter: postgresql
-	 database: pentabarf
-	 host: localhost
-	 username: pentabarf
-	 password: pentabarf
+	 database: pentabarf
+	 host: localhost
+	 username: pentabarf
+	 password: pentabarf
 
 
 -jabber.yml-
@@ -332,7 +331,29 @@ This should generate the following if all is well.
 Every time you want to start Pentabarf you will need to run the above 
 command first.
 
-Now you should finally be able to try accessing Pentabarf via port 80 using apache.
+The final command is still from within the rails directory of pentabarf.
+
+	script/server
+
+Now you should have just watch Pentabarf start up, a successful start 
+looks a little like the following.
+
+	=> Booting Mongrel
+	=> Rails 2.3.10 application starting on http://0.0.0.0:3000
+	=> Call with -d to detach
+	=> Ctrl-C to shutdown server
+
+
+NOTE:	If you close the terminal that you started pentabarf from then
+	you kill pentabarf too.
+
+
+Now you should finally be able to try accessing Pentabarf via one of
+the following from the local machine.
+
+	http://0.0.0.0:3000	(user:pentabarf pass:pentabarf)
+	http://localhost:3000	(user:pentabarf pass:pentabarf)
+	http://127.0.0.1:3000	(user:pentabarf pass:pentabarf)
 
 
 ---------------------
