@@ -2,3 +2,11 @@
 *.swp
 rails/config/deploy.rb
 rails/Capfile
+rails/log/*.log
+rails/app/stylesheets/.sass-cache
+rails/tmp/sass-cache
+rails/tmp/pids
+rails/config/*.yml
+rails/tmp/html-export/*/*
+sql/install.log
+
