@@ -5,7 +5,7 @@ require 'momomoto_helper'
 
 class ApplicationController < ActionController::Base
   include MomomotoHelper
-  session :off
+#  session :off
   around_filter :transaction_wrapper
   before_filter :automatic_token_check
 
