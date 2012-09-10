@@ -18,7 +18,6 @@ import = File.open('import.sql', 'w')
 import.puts("BEGIN TRANSACTION;")
 tables.each do | table |
   if !ARGV[0] || ARGV[0] == table
-    import.puts "DELETE FROM #{table}"
     puts "dumping table #{table}"
 
     schema = table.split('.').length == 2 ? table.split('.')[0] : 'public'
