@@ -4,7 +4,7 @@
 # you don't control web/app server and can't set it the proper way
 ENV['RAILS_ENV'] ||= 'production'
 
-RAILS_GEM_VERSION = '2.3.10'
+RAILS_GEM_VERSION = '2.3.14'
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')

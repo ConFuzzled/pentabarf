@@ -26,11 +26,11 @@ Apache 2
    * mod_proxy_http
    * mod_proxy_balancer
    * mod_rewrite 
-PostgreSQL >= 8.2.x
+PostgreSQL >= 8.4.x <9.0
 PostgreSQL contrib (pgcrypto)
-Ruby 1.8.6
-Ruby-dev 1.8.6
-Rails 2.2.x
+Ruby 1.8.7
+Ruby-dev 1.8.7
+Rails 2.3.14
 ImageMagick (image manipulation library)
 libmagickcore-dev
 libmagickwand-dev
@@ -54,14 +54,14 @@ NOTE:	You should install all Ruby libraries with gem. Do not try
 
 XMPP4R				- [gem install xmpp4r]
 RMagick				- [gem install rmagick --no-ri --no-rdoc]
-postgres (>=0.7.9.2008.01.28)	- [gem install postgres]
+postgres (=0.7.9.2008.01.28)	- [gem install postgres]
 Momomoto (>= 0.2.1)		- [gem install momomoto]
 shared-mime-info		- [gem install shared-mime-info]
 iCalendar			- [gem install icalendar]
 BlueCloth			- [gem install BlueCloth]
 Mongrel				- [gem install mongrel]
 Mongrel_cluster			- [gem install mongrel_cluster]
-Rails (2.3.10)			- [gem install -v=2.3.10 rails]
+Rails (2.3.14)			- [gem install -v=2.3.14 rails]
 
 
 -----------
