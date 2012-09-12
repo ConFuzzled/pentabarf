@@ -20,8 +20,8 @@ CREATE TABLE base.event (
   description TEXT,
   resources TEXT,
   public BOOL NOT NULL DEFAULT TRUE,
-  paper BOOL,
-  slides BOOL,
+  paper BOOL DEFAULT FALSE,
+  slides BOOL DEFAULT FALSE,
   remark TEXT,
   submission_notes TEXT
 );

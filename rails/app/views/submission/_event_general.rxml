@@ -14,8 +14,8 @@ xml.div(:id=>'content-general') do
         xml.td do xml.b( local('event::event_state_progress')) end
         xml.td( @event.event_state_progress )
       end
-      xml << select_row( @event, :paper, [[nil,'unknown'],[true,'yes'],[false,'no']] )
-      xml << select_row( @event, :slides, [[nil,'unknown'],[true,'yes'],[false,'no']] )
+     # xml << select_row( @event, :paper, [[nil,'unknown'],[true,'yes'],[false,'no']] )
+     # xml << select_row( @event, :slides, [[nil,'unknown'],[true,'yes'],[false,'no']] )
       xml << select_row( @event, :language, View_conference_language.select({:conference_id=>@event.conference_id,:translated=>@current_language},{:order=>:name}).map{|e| [e.language,e.name]}, {:with_empty=>true} )
       tracks = @conference.tracks.map{|t| [t.conference_track_id,t.conference_track]}
       if not tracks.empty?
