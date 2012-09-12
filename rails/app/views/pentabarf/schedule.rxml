@@ -33,7 +33,9 @@ xml.div({:id=>:data}) do
                 else
                   event = @events.select{|e| e.event_id == row[room.conference_room_id][:event_id]}.first
                   xml.td({:rowspan=>row[room.conference_room_id][:slots],:style=>"background-color: #{track_color[event.conference_track]}"}) do
+		   xml.div(:style=>"overflow-y: hidden;") do
                     xml << format_event( event )
+		   end
                   end
                 end
               end
