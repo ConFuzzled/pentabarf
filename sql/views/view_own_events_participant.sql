@@ -51,7 +51,7 @@ FROM
   INNER JOIN event_state_localized USING (event_state)
   INNER JOIN event_state_progress_localized USING (event_state,event_state_progress,translated)
   INNER JOIN event_role_localized USING (event_role,translated)
-  INNER JOIN event_role_state_localized USING (event_role,event_role_state,translated)
+  LEFT INNER JOIN event_role_state_localized USING (event_role,event_role_state,translated)
   INNER JOIN event_role ON (
     event_role.event_role = event_person.event_role AND
     event_role.participant = TRUE )
