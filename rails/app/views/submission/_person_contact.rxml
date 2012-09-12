@@ -50,7 +50,7 @@ xml.div(:id=>'content-contact') do
       xml.thead do
         xml.tr do
           xml.th( local('person_phone::phone_type') )
-          xml.th( local('person_phone::phone_number') )
+         xml.th( local('person_phone::phone_number') )
           xml.th( local('form::remove') )
         end
       end
@@ -76,18 +76,18 @@ xml.div(:id=>'content-contact') do
     xml.button( local('person::add_person_phone'), {:type=>:button,:onclick=>'table_add_row("person_phone")'})
   end
 
-  xml.fieldset do
-    xml.legend local('person::address')
-
-    xml.table do
-      xml << text_field_row( @person, :address )
-      xml << text_field_row( @person, :street )
-      xml << text_field_row( @person, :street_postcode )
-      xml << text_field_row( @person, :po_box )
-      xml << text_field_row( @person, :po_box_postcode )
-      xml << text_field_row( @person, :city )
-      xml << select_row( @person, :country, Country_localized.select({:translated=>@current_language},{:order=>:name}).map{|e| [e.country, e.name]}, {:with_empty=>true})
-    end
-  end
+#  xml.fieldset do
+#    xml.legend local('person::address')
+#
+#    xml.table do
+#      xml << text_field_row( @person, :address )
+#      xml << text_field_row( @person, :street )
+#      xml << text_field_row( @person, :street_postcode )
+#      xml << text_field_row( @person, :po_box )
+#      xml << text_field_row( @person, :po_box_postcode )
+#      xml << text_field_row( @person, :city )
+#      xml << select_row( @person, :country, Country_localized.select({:translated=>@current_language},{:order=>:name}).map{|e| [e.country, e.name]}, {:with_empty=>true})
+#    end
+#  end
 
 end
