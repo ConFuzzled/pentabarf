@@ -24,7 +24,7 @@ xml.div({:id=>:data}) do
 
         xml.tbody do
           day_table.each do | row |
-            xml.tr do
+            xml.tr(:style=>"height:25px") do
               xml.td(row[0])
               rooms.each do | room |
                 next if row[room.conference_room_id] == 0
@@ -33,7 +33,7 @@ xml.div({:id=>:data}) do
                 else
                   event = @events.select{|e| e.event_id == row[room.conference_room_id][:event_id]}.first
                   xml.td({:rowspan=>row[room.conference_room_id][:slots],:style=>"background-color: #{track_color[event.conference_track]}"}) do
-		   xml.div(:style=>"overflow-y: hidden;") do
+		   xml.div(:style=>"overflow-y: hidden; max-height:#{row[room.conference_room_id][:slots]*25}px") do
                     xml << format_event( event )
 		   end
                   end
