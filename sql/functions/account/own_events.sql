@@ -8,7 +8,7 @@ CREATE OR REPLACE FUNCTION own_events( person_id INTEGER) RETURNS SETOF INTEGER 
                   WHERE
                     event_person.person_id = $1 AND
                     event_person.event_id = event.event_id AND
-                    event_person.event_role IN ('speaker','moderator','coordinator','submitter'));
+                    event_person.event_role IN ('speaker','moderator','coordinator','submitter','visitor'));
 $$ LANGUAGE SQL RETURNS NULL ON NULL INPUT;
 
 -- get event_ids of all events a person is speaker of a specific conference
@@ -21,6 +21,6 @@ CREATE OR REPLACE FUNCTION own_conference_events( person_id INTEGER, conference_
                   WHERE
                     event_person.person_id = $1 AND
                     event_person.event_id = event.event_id AND
-                    event_person.event_role IN ('speaker','moderator','coordinator','submitter'));
+                    event_person.event_role IN ('speaker','moderator','coordinator','submitter','visitor'));
 $$ LANGUAGE SQL RETURNS NULL ON NULL INPUT;
 
