@@ -125,7 +125,7 @@ INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('confere
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('conference::currency', 'en', 'Currency');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('conference::currency', 'pt', 'Moeda');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('conference::day_change', 'de', 'Neuer Konferenztag beginnt um');
-INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('conference::day_change', 'en', 'New conference day starts at');
+INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('conference::day_change', 'en', 'New convention day starts at');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('conference::day_change', 'pt', 'Novo dia da conferência começa em');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('conference::days', 'de', 'Tage');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('conference::days', 'en', 'Days');
@@ -177,7 +177,7 @@ INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('confere
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('conference::release', 'en', 'Release');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('conference::release', 'pt', 'Liberação');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('conference::remark', 'de', 'Allgemeine Notizen zur Konferenz');
-INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('conference::remark', 'en', 'General notes on the conference');
+INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('conference::remark', 'en', 'General notes on the convention');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('conference::remark', 'pt', 'Geral notas em o conferência');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('conference::schedule_html_include', 'en', 'HTML include');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('conference::subtitle', 'de', 'Untertitel');
@@ -761,7 +761,7 @@ INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event_r
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event_rating_category::event_rating_category_id', 'de', 'Veranstaltungsbewertunskategorie');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event_rating_category::event_rating_category_id', 'en', 'Event rating category');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event_rating_category::no_category_defined_for_this_conference', 'de', 'Keine Bewertungskategorie für diese Konferenz vorhanden.');
-INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event_rating_category::no_category_defined_for_this_conference', 'en', 'No rating category for this conference defined yet.');
+INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event_rating_category::no_category_defined_for_this_conference', 'en', 'No rating category for this convention defined yet.');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event_rating_category::rank', 'de', 'Reihenfolge');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event_rating_category::rank', 'en', 'Order');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event_rating_remark', 'de', 'Veranstaltungsbewertung');
@@ -819,7 +819,7 @@ INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('feedbac
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('feedback::question_presentation_quality', 'en', 'What is your impression of the presentation?');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('feedback::question_presentation_quality', 'pt', 'Que é seu impressão de o apresentação?');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('feedback::question_topic_importance', 'de', 'Wie wichtig ist dieses Thema für diese Konferenz?');
-INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('feedback::question_topic_importance', 'en', 'How important is this topic for this conference?');
+INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('feedback::question_topic_importance', 'en', 'How important is this topic for this convention?');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('feedback::question_topic_importance', 'pt', 'Como importante é este tópico para este conferência?');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('feedback::rating', 'en', 'Rating');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('feedback::rating', 'pt', 'Rating');
@@ -836,7 +836,7 @@ INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('feedbac
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('feedback::total_votes', 'en', 'Total votes');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('feedback::total_votes', 'pt', 'Total votos');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('feedback::welcome_to_the_feedback_system', 'de', 'Willkommen beim Feedback-System.');
-INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('feedback::welcome_to_the_feedback_system', 'en', 'Welcome to our feedback system. It collects feedback so that we have a chance to know what you think about the events of this conference.');
+INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('feedback::welcome_to_the_feedback_system', 'en', 'Welcome to our feedback system. It collects feedback so that we have a chance to know what you think about the events of this convention.');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('feedback::welcome_to_the_feedback_system', 'pt', 'Bem-vindo para nosso resposta sistema. Ele recolhe resposta assim aquele nós ter a chance para saber que você pensar sobre o eventos de este conferência.');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('find_event', 'de', 'Finde Veranstaltung');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('find_event', 'en', 'Find Event');
@@ -1021,7 +1021,7 @@ INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('pentaba
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('pentabarf::mail', 'en', 'Mail');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('pentabarf::mail', 'pt', 'Mail');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('pentabarf::overview::introduction', 'de', 'Hier findest Du eine Übersicht über alle Veranstaltungen dieser Konferenz an denen Du in irgendeiner Form beteiligt bist (derzeit werden nur die Rollen "Moderator", "Referent", "Besucher" und "Koordinator" berücksichtigt).');
-INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('pentabarf::overview::introduction', 'en', 'This is an overview over every event of this conference that you are somehow associated with (currently only the "moderator", "speaker", "visitor" and "coordinator" roles are displayed).');
+INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('pentabarf::overview::introduction', 'en', 'This is an overview over every event of this convention that you are somehow associated with (currently only the "moderator", "speaker", "visitor" and "coordinator" roles are displayed).');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('pentabarf::overview::introduction', 'pt', 'Este é um visão geral sobre cada um evento de este conferência aquele você são alguma associados com (atualmente somente o "moderador", "falante", "visitante" e "coordenador" papéis são exibida).');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('pentabarf::own_events', 'de', 'Eigene Veranstaltungen');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('pentabarf::own_events', 'en', 'Own Events');
@@ -1338,7 +1338,7 @@ INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submiss
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::events', 'en', 'Events');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::events', 'pt', 'Eventos');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::events::introduction', 'de', 'Dies ist eine Liste aller Veranstaltungen dieser Konferenz mit Du in irgendeiner Form assoziiert bist. Selektiere den Titel einer Veranstaltung um weitere Informationen darüber zu sehen oder zu ändern.');
-INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::events::introduction', 'en', 'This is a list of all events of this conference that you are associated with. Select the title of any event you might want to view or make changes to.');
+INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::events::introduction', 'en', 'This is a list of all events of this convention that you are associated with. Select the title of any event you might want to view or make changes to.');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::events::introduction', 'pt', 'Esta é a lista de todos eventos da conferência. Selecione o título de um evento para visualizar ou editar.');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::follow_these_steps', 'en', 'To submit your entry follow these steps:');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::follow_these_steps', 'pt', 'Para enviar, siga estas etapas:');
@@ -1384,7 +1384,7 @@ INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submiss
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::step6', 'de', '#6');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::step6', 'en', '#6');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::step6', 'pt', '# 6');
-INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::step_activate_account', 'en', 'Click on the link sent to you with the confirmation mail to activate your account. You will be redirected to the submission interface of this conference.');
+INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::step_activate_account', 'en', 'Click on the link sent to you with the confirmation mail to activate your account. You will be redirected to the submission interface of this convention.');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::step_activate_account', 'pt', 'Clique no link que foi enviado para você no e-mail para ativar sua conta. Você será redirecionado para o site desta conferência.');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::step_done', 'en', 'The events team will review your submission and contact you via email.');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::step_done', 'pt', 'Obrigado por participar.');
@@ -1396,8 +1396,8 @@ INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submiss
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::step_new_account', 'pt', 'Clique em "Criar Conta " e preencha o formulário. Uma conta será criada e um e-mail será enviado para você para confirmação.');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::step_new_event', 'en', 'Click on "New Event" on the left to create the new event you want to propose. Fill in the details of your submission. Don''t forget to fill in text boxes on the "Description" tab.');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::step_new_event', 'pt', 'Clique em "Novo Evento " a esquerda para criar um novo evento que você queira propor. Preencha em detalhes as informações de sua apresentação. Não esqueça de preencher todas as abas.');
-INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::submission_readonly', 'en', 'The submission system for this conference is read only.');
-INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::submit_for_these_conferences', 'en', 'You can submit events to any of the following conferences:');
+INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::submission_readonly', 'en', 'The submission system for this convention is read only.');
+INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::submit_for_these_conferences', 'en', 'You can submit events to any of the following conventions:');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::welcome_to_submission_system', 'en', 'Welcome to the events submission system');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::you_are_done', 'en', 'You are done!');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('tabs::show_all', 'de', 'Alle anzeigen');
@@ -1430,4 +1430,4 @@ INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('user::t
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('user::thanks_for_registering', 'de', 'Danke für Deine Registrierung. Um Deinen Benutzer zu Aktivieren, klicke auf den Link der Mail, die Du gerade bekommen hast.');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('user::thanks_for_registering', 'en', 'Thank you for registering an account. The activation link has just been sent to your email address. To activate your account click on the activation link you just got by mail.');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('user::use_account_for_these_conferences', 'de', 'Du kannst Deinen Benutzer verwenden um Einreichungen zu folgenden Konfrenzen zu tätigen:');
-INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('user::use_account_for_these_conferences', 'en', 'You can use your account to submit papers to one of the following conferences:');
+INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('user::use_account_for_these_conferences', 'en', 'You can use your account to submit events to one of the following conventions:');
