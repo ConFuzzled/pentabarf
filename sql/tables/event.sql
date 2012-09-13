@@ -8,7 +8,7 @@ CREATE TABLE base.event (
   conference_track_id INTEGER,
   conference_team TEXT,
   event_type TEXT,
-  duration INTERVAL NOT NULL DEFAULT '1:00:00',
+  duration INTERVAL NOT NULL DEFAULT,
   event_origin TEXT NOT NULL DEFAULT 'idea',
   event_state TEXT NOT NULL DEFAULT 'undecided',
   event_state_progress TEXT NOT NULL DEFAULT 'new',
