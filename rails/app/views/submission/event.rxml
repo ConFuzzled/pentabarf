@@ -12,6 +12,11 @@ xml.div( :id => 'data' ) do
 
     xml << hidden_field( @event, :current_transaction_id )
 
+    xml.p do
+        xml.text! local('submission::difficulty_contact')
+        xml.a(@conference.email, :href=>"mailto:#{@conference.email}")
+    end
+    
     xml << render( :partial => 'submission_comment' )
     xml << render( :partial => 'shared/modification_buttons' )
 

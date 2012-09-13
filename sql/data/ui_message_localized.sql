@@ -1314,6 +1314,7 @@ INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('sidebar
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::activate_your_account', 'de', 'Aktivieren Sie ihren Benutzer');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::activate_your_account', 'en', 'Activate your account');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::activate_your_account', 'pt', 'Ativar sua conta');
+INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::difficulty_contact', 'en', 'If you encounter any difficulties with this process please contact');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::enter_personal_details', 'de', 'Angabe der persönlichen Daten');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::enter_personal_details', 'en', 'Enter personal details');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('submission::enter_personal_details', 'pt', 'Digite seus dados pessoais');

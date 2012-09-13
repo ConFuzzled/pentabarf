@@ -16,7 +16,10 @@ xml.div do
 
   if @conference
     xml.p local('submission::follow_these_steps')
-
+    xml.p do
+	xml.text! local('submission::difficulty_contact')
+        xml.a(@conference.email, :href=>"mailto:#{@conference.email}")
+    end
     xml.table do
       xml.tr do
         xml.td do xml.b local('submission::step1')  end

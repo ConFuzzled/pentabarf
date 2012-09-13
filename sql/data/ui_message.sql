@@ -691,6 +691,7 @@ INSERT INTO ui_message (ui_message) VALUES ('slides_submitted');
 INSERT INTO ui_message (ui_message) VALUES ('speakers');
 INSERT INTO ui_message (ui_message) VALUES ('spoken languages');
 INSERT INTO ui_message (ui_message) VALUES ('submission::activate_your_account');
+INSERT INTO ui_message (ui_message) VALUES ('submission::difficulty_contact');
 INSERT INTO ui_message (ui_message) VALUES ('submission::enter_personal_details');
 INSERT INTO ui_message (ui_message) VALUES ('submission::event::introduction');
 INSERT INTO ui_message (ui_message) VALUES ('submission::event::introduction::hint');
