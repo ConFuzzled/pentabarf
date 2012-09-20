@@ -260,7 +260,7 @@ INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('confere
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('conference_person', 'en', 'Conference person');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('conference_person', 'pt', 'Conferência pessoa');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('conference_person::abstract', 'de', 'Kurzbeschreibung');
-INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('conference_person::abstract', 'en', 'Abstract');
+INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('conference_person::abstract', 'en', 'Short description');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('conference_person::abstract', 'pt', 'Abstract');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('conference_person::arrived', 'de', 'Person am Veranstaltungsort angekommen');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('conference_person::arrived', 'en', 'Person arrived at venue');
@@ -481,10 +481,10 @@ INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event',
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event', 'en', 'Event');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event', 'pt', 'Evento');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event::abstract', 'de', 'Kurzbeschreibung (Abstract)');
-INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event::abstract', 'en', 'Abstract');
+INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event::abstract', 'en', 'Short Description (for conbook)');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event::abstract', 'pt', 'Abstract');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event::abstract::introduction', 'de', 'Die Kurzbeschreibung (Abstract) sollte eine kurze Einführung in den Inhalt der Veranstaltung bieten. Versuche die wichtigsten Punkte zusammenzufassen und verwende nicht mehr als drei Sätze. Die Kurzbeschreibung sollte jedem eine klare Vorstellung davon vermitteln, worum es in der Veranstaltung geht. Verwende nicht die erste Person und bilde ganze Sätze (keine Gliederungen). Verwende dieselbe Sprache in der die Veranstaltung durchgeführt wird.');
-INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event::abstract::introduction', 'en', 'The abstract should be a brief introduction to the content of the event. Try to summarize the key points in no more than three sentences. The abstract should allow everybody to get a clear idea on what the event is about. Do not use first person and create full sentences (no outlines). Use the same language the event is presented with.');
+INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event::abstract::introduction', 'en', 'The short description should be a brief introduction to the content of the event. Try to summarize the key points in no more than three sentences. The short description should allow everybody to get a clear idea on what the event is about. Do not use first person and create full sentences (no outlines). Use the same language the event is presented with.');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event::abstract::introduction', 'pt', 'O resumo deveria ser a breve introdução para o conteúdo de o evento. Tentar para resumir o chave pontos em não mais do que três frases. O resumo deveria permitir todos para obter a apagar idéia em que o evento é sobre. Fazer não usar primeiro pessoa e criar cheio frases (não outlines). Usar o mesmo linguagem o evento é apresentado com.');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event::add_attachment', 'de', 'Datei hinzufügen');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event::add_attachment', 'en', 'Add attachment');
@@ -531,7 +531,7 @@ INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event::
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event::creation_time', 'de', 'erstellt am');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event::creation_time', 'en', 'creation time');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event::description', 'de', 'Inhaltsangabe');
-INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event::description', 'en', 'Full Description');
+INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event::description', 'en', 'Full Description (for website)');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event::description', 'pt', 'Cheio Descrição');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event::description::introduction', 'de', 'Die Inhaltsangabe der Veranstaltung solte alle Inhalte der Veranstaltung möglichst ausführlich und umfassend beschreiben. Verwende Gliederungen wo es angemessen ist aber verwende vollständige Sätze wo immer möglich.');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event::description::introduction', 'en', 'Use the full description to explain everything that is worth knowing about the content of the event in great detail. Use outlines occasionally if you think it is necessary but try to summarize the content in full sentences whenever possible.');
@@ -571,7 +571,7 @@ INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event::
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event::remark', 'en', 'Notes');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event::remark', 'pt', 'Notas');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event::resources', 'de', 'Ressourcen');
-INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event::resources', 'en', 'Resources');
+INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event::resources', 'en', 'Resources Required');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event::resources', 'pt', 'Recursos');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event::resources::introduction', 'de', 'Bitte notiere alle notwendigen Resourcen, um diese Veranstaltung durchführen zu können. Das umfasst Präsentationstechnologie, Material, Assistenten oder organisatorische Voraussetzungen.');
 INSERT INTO ui_message_localized (ui_message, translated, name) VALUES ('event::resources::introduction', 'en', 'Please note all resources that might be necessary to let this event happen. This includes necessary presentation technology, material, assistants or other organizational prerequisites.');
