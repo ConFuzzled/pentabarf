@@ -12,3 +12,4 @@ exception_recipients:
 
 exception_subject: 'Pentabarf Exception'
 
+exception_help_address: 

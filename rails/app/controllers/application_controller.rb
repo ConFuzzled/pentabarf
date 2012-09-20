@@ -54,8 +54,13 @@ class ApplicationController < ActionController::Base
   end
 
   def rescue_action_in_public( exception )
-    @meditation_message = exception.message
-    render :file => File.join( RAILS_ROOT, '/app/views/meditation.rhtml' )
+      @@helpconfig = YAML.load_file( File.join( RAILS_ROOT, 'config', 'mail.yml' ) )
+      
+      raise 'Mail not configured' if !( @@helpconfig['exception_help_address'] )
+
+      @meditation_message = exception.message
+      @helpemail = @@helpconfig['exception_help_address']
+      render :file => File.join( RAILS_ROOT, '/app/views/meditation.rhtml' )
   end
 
   # extract authorization credentials from http header
