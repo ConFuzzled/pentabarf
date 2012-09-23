@@ -1,0 +1,33 @@
+Rename current database to pentabarf.old
+
+Export data for migration:
+pg_dump -n auth -T auth.conference_role_permission -T auth.object_domain -T auth.role_permission --data-only --disable-triggers pentabarf.old > auth.sql
+
+pg_dump -n release --data-only --disable-triggers pentabarf.old > release.sql
+
+pg_dump  -n public -T public.country -T public.country_localized -T public.currency -T public.language -T public.language_localized -T public.timezone -T public.ui_message -T public.ui_message_localized --data-only  --disable-triggers pentabarf.old > public.sql
+
+Create temporary database and perform installation:
+cd sql
+make install
+make import
+
+pg_dump -s pentabarf > schema.sql
+pg_dump -a pentabarf > data.sql
+
+Edit schema and split out all lines creating constraints into constraints.sql
+
+Drop temporary database and create new pentabarf database
+
+psql < /usr/share/postgresql/share/postgresql/contrib/pgcrypto.sql 
+cd /usr/lib/ruby/gems/1.8/gems/momomoto-0.2.1/sql/
+psql < install.sql
+
+psql < schemea.sql 
+psql < data.sql 
+psql < auth.sql 
+psql < public.sql 
+psql < release.sql 
+psql < constraints.sql 
+
+Start server.
