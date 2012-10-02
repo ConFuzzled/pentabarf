@@ -1,3 +1,6 @@
+
+NOTE: Need to work out why the defaults using nextval didn't apply in public
+
 Rename current database to pentabarf.old
 
 Export data for migration:
