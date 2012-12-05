@@ -30,7 +30,7 @@ PostgreSQL >= 8.4.x <9.0
 PostgreSQL contrib (pgcrypto)
 Ruby 1.8.7
 Ruby-dev 1.8.7
-Rails 2.3.14
+Rails 2.3.5
 ImageMagick (image manipulation library)
 libmagickcore-dev
 libmagickwand-dev
@@ -61,7 +61,7 @@ iCalendar			- [gem install icalendar]
 BlueCloth			- [gem install BlueCloth]
 Mongrel				- [gem install mongrel]
 Mongrel_cluster			- [gem install mongrel_cluster]
-Rails (2.3.14)			- [gem install -v=2.3.14 rails]
+Rails (2.3.5)			- [gem install -v=2.3.5 rails]
 
 
 -----------
