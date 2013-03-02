@@ -41,7 +41,7 @@ class IcalController < ApplicationController
         uid "#{event.event_id}@#{conf.acronym}@pentabarf.org"
         dtstamp Time.now.strftime('%Y%m%dT%H%M%S')
         dtstart event.start_datetime.strftime('%Y%m%dT%H%M%S'), {'TZID'=>tz.timezone}
-        duration sprintf( 'PT%dH%02dM', event.duration.hour, event.duration.min )
+        dtend event.end_datetime.strftime('%Y%m%dT%H%M%S'), {'TZID'=>tz.timezone}
         summary event.title + ( event.subtitle ? " - #{event.subtitle}" : '')
         description event.abstract.to_s.gsub( "\n", '' ).gsub( "\r", '' )
         add_category "Lecture"
