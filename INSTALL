@@ -58,7 +58,7 @@ iCalendar			- [gem install -v=1.4.5 icalendar]
 BlueCloth			- [gem install BlueCloth]
 Mongrel				- [gem install mongrel]
 Mongrel_cluster			- [gem install mongrel_cluster]
-Rails (=2.3.5)			- [gem install -v=2.3.5 rails]
+Rails (=2.3.14)			- [gem install -v=2.3.5 rails]
 
 
 -----------
