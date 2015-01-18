@@ -1,5 +1,8 @@
 xml.div(:id=>'content-resources') do
 
   xml << text_area_fieldset( @event, :resources, {:rows=>12} )
+  xml << text_area_fieldset( @event, :room_layout, {:rows=>12} )
+  xml << text_area_fieldset( @event, :hotel_resources, {:rows=>12} )
+  xml << text_area_fieldset( @event, :con_resources, {:rows=>12} )
 
 end
