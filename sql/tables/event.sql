@@ -23,7 +23,10 @@ CREATE TABLE base.event (
   paper BOOL DEFAULT FALSE,
   slides BOOL DEFAULT FALSE,
   remark TEXT,
-  submission_notes TEXT
+  submission_notes TEXT,
+  room_layout TEXT,
+  hotel_resources TEXT,
+  con_resources TEXT
 );
 
 CREATE TABLE event (
